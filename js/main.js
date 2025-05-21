@@ -88,23 +88,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // التبويبات (المنتجات)
-    const tabs = document.querySelectorAll('.tab');
+    const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
 
-    if (tabs.length > 0 && tabPanes.length > 0) {
-        tabs.forEach(tab => {
+    if (tabBtns.length > 0 && tabPanes.length > 0) {
+        tabBtns.forEach(tab => {
             tab.addEventListener('click', function () {
                 // إزالة الكلاس النشط من جميع التبويبات
-                tabs.forEach(t => t.classList.remove('active'));
+                tabBtns.forEach(t => t.classList.remove('active'));
 
                 // إضافة الكلاس النشط للتبويب المحدد
-                this.classList.add('active');
-
-                // إخفاء جميع المحتويات
+                this.classList.add('active');                // إخفاء جميع المحتويات
                 tabPanes.forEach(pane => pane.classList.remove('active'));
 
                 // إظهار المحتوى المرتبط بالتبويب المحدد
-                const targetPane = document.getElementById(this.dataset.target);
+                const tabId = this.getAttribute('data-tab');
+                const targetPane = document.getElementById(tabId);
                 if (targetPane) {
                     targetPane.classList.add('active');
                 }

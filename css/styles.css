@@ -1331,16 +1331,36 @@ footer {
 }
 
 .dark-mode .footer-links a {
-    color: #ccc;
+    color: #e0e0e0;
+    transition: var(--transition);
 }
 
 .dark-mode .footer-links a:hover {
     color: var(--primary-color);
+    transform: translateX(-3px);
 }
 
 .dark-mode .copyright {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     background-color: #0a0a0a;
+    color: #f4f4f4;
+}
+
+.dark-mode .footer-content {
+    color: #f4f4f4;
+}
+
+.dark-mode .footer-logo p {
+    color: #f4f4f4;
+}
+
+.dark-mode .footer-links h3,
+.dark-mode .footer-contact h3 {
+    color: var(--primary-color);
+}
+
+.dark-mode .footer-contact p {
+    color: #f4f4f4;
 }
 
 .dark-mode .footer-contact i {
@@ -1536,19 +1556,22 @@ footer {
         height: 40px;
         bottom: 20px;
         right: 20px;
-    }    .lang-switch {
+    }
+
+    .lang-switch {
         top: 80px;
         left: 20px;
         z-index: 98;
         background-color: rgba(255, 255, 255, 0.95);
         animation: slideIn 0.5s ease forwards;
     }
-    
+
     @keyframes slideIn {
         from {
             transform: translateY(10px);
             opacity: 0;
         }
+
         to {
             transform: translateY(0);
             opacity: 1;
