@@ -2,14 +2,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // شاشة التحميل
     const preloader = document.getElementById('preloader');
 
-    window.addEventListener('load', function () {
-        setTimeout(function () {
+    if (preloader) {
+        // إضافة تأمين لحماية الموقع من التعليق في حالة حدوث خطأ في شاشة التحميل
+        const preloaderTimeout = setTimeout(function () {
             preloader.style.opacity = '0';
+            preloader.style.display = 'none';
+        }, 5000); // مهلة أمان لإخفاء الشاشة في حالة عدم تحميل الصفحة
+
+        window.addEventListener('load', function () {
+            clearTimeout(preloaderTimeout); // إلغاء المهلة الزمنية للتأمين
             setTimeout(function () {
-                preloader.style.display = 'none';
-            }, 500);
-        }, 1000);
-    });
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+    }
 
     // تثبيت القائمة العلوية عند التمرير
     window.addEventListener('scroll', function () {
@@ -95,10 +104,10 @@ document.addEventListener('DOMContentLoaded', function () {
         tabBtns.forEach(tab => {
             tab.addEventListener('click', function () {
                 // إزالة الكلاس النشط من جميع التبويبات
-                tabBtns.forEach(t => t.classList.remove('active'));
+                tabBtns.forEach(t => t.classList.remove('active'));                // إضافة الكلاس النشط للتبويب المحدد
+                this.classList.add('active');
 
-                // إضافة الكلاس النشط للتبويب المحدد
-                this.classList.add('active');                // إخفاء جميع المحتويات
+                // إخفاء جميع المحتويات
                 tabPanes.forEach(pane => pane.classList.remove('active'));
 
                 // إظهار المحتوى المرتبط بالتبويب المحدد

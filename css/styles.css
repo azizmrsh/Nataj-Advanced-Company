@@ -116,6 +116,23 @@ img {
     justify-content: center;
     align-items: center;
     transition: all 0.5s ease;
+    animation: preloaderFallback 8s forwards;
+    /* للتأكد من إخفاء الشاشة حتى في حالة حدوث خطأ */
+}
+
+@keyframes preloaderFallback {
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 .loader {
