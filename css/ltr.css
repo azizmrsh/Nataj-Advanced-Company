@@ -1,0 +1,217 @@
+/* تنسيقات خاصة للغة الإنجليزية (من اليسار إلى اليمين) */
+body {
+    direction: ltr;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* تعديل موضع الشعار في النسخة الإنجليزية */
+.logo {
+    position: absolute;
+    left: 0;
+    right: auto;
+}
+
+/* محاذاة النص للمربعات في النسخة الإنجليزية */
+.feature-card,
+.value-card,
+.chemicals-info {
+    text-align: left;
+}
+
+/* تخصيص كروت الخدمات في النسخة الإنجليزية */
+.service-card {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-card p {
+    text-align: left;
+}
+
+/* كروت النشاط الجغرافي تكون محاذاتها في الوسط */
+.location-card {
+    text-align: center;
+}
+
+/* تحسينات ورموز كروت النشاط الجغرافي في النسخة الإنجليزية */
+.location-card i {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* توسيط عناصر الكروت الأخرى في النسخة الإنجليزية */
+.cert-detail-card,
+.contact-card {
+    text-align: center;
+}
+
+.cert-detail-card i,
+.contact-card i {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+nav ul li {
+    margin-right: 0;
+    margin-left: 25px;
+}
+
+nav ul li a::after {
+    right: auto;
+    left: 0;
+}
+
+.about-text {
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+.service-btn i {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+.service-btn:hover i {
+    transform: translateX(5px);
+}
+
+.contact-form {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.icon-box,
+.contact-card i,
+.footer-contact i,
+.transport-cert h3 i,
+.cert-detail-card i,
+.team-info i {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.submit-btn:before {
+    right: auto;
+    left: -100%;
+}
+
+.submit-btn:hover:before {
+    right: auto;
+    left: 0;
+}
+
+/* تحويل الازرار للاتجاه الصحيح */
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    left: auto;
+    z-index: 1000;
+    display: flex;
+    gap: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.lang-switch a {
+    letter-spacing: 0.5px;
+}
+
+.lang-switch a.active {
+    box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
+}
+
+.lang-switch a:not(.active):hover {
+    background-color: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+/* إصلاح قائمة الأجهزة المحمولة */
+@media screen and (max-width: 768px) {
+    nav {
+        right: auto;
+        left: -300px;
+    }
+
+    nav.active {
+        right: auto;
+        left: 0;
+    }
+
+    .menu-toggle {
+        right: auto;
+        left: 20px;
+    }
+
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        min-width: 90%;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+    }
+    
+    .lang-switch {
+        top: 80px;
+        right: 20px;
+        left: auto;
+        z-index: 98;
+        background-color: rgba(255, 255, 255, 0.95);
+        animation: slideIn 0.5s ease forwards;
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateY(10px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+/* تحسينات للأجهزة الصغيرة */
+@media screen and (max-width: 576px) {
+
+    .location-card,
+    .service-card,
+    .feature-card,
+    .cert-detail-card,
+    .value-card,
+    .team-card,
+    .vision-box,
+    .mission-box,
+    .contact-card {
+        min-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .service-card {
+        width: 90%;
+        max-width: none;
+        padding: 20px;
+    }
+
+    .service-card p,
+    .service-card h3,
+    .feature-card p,
+    .feature-card h4 {
+        text-align: center !important;
+        width: 100%;
+    }
+}
